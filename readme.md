@@ -66,18 +66,18 @@
 
 ``` c++
     int code;      //表示用户编号；
-    char name[20];  //表示用户姓名
+    string name;  //表示用户姓名
 ```
 
 成员函数:
 
 ``` c++
     CUser();   // 默认构造函数
-    CUser(int id, char na[]);   //构造函数，初始化用户信息
+    CUser(int id, string na);   //构造函数，初始化用户信息
     void setcode(int n);      //用来设置用户编号
     int getcode();          //用来获取用户编号
-    void setname(char na[]);  //用来设置用户姓名
-    char* getname();        //用来获取用户姓名
+    void setname(string na);  //用来设置用户姓名
+    string  getname();        //用来获取用户姓名
     void show();           //用来显示用户的基本信息
 ```
 
@@ -95,7 +95,7 @@
 
 ``` c++
     CReader();               //默认的构造函数
-    CReader(int id, char na[]);   //构造函数，初始化读者信息
+    CReader(int id, string na);   //构造函数，初始化读者信息
     bool get_Existing();        //用来获取删除标志
     void set_Existing(bool);     //用来设置删除标志
     bool get_Borrowing();      //用来获取读者借阅情况
@@ -111,7 +111,7 @@
 
 ``` c++
     int code;              //图书编号
-    char name[20];      //图书名称
+    string name;     //图书名称
     bool Is_Stock;          //true为在架，false为借出
     bool Is_Existing;       //true为存在, false为删除
 ```
@@ -120,11 +120,11 @@
 
 ``` c++
     CBook(); //默认构造函数
-    CBook(int no,char na[]);    //构造函数，初始化图书信息
+    CBook(int no,string na);    //构造函数，初始化图书信息
     void setcode(int n);   //设置图书编号
     int getcode();    //获取图书编号
-    void setname(char na[]);    //设置图书名称
-    char* getname();  //获取图书名称
+    void setname(string na);    //设置图书名称
+    string getname();  //获取图书名称
     bool  get_Stock();  //获取图书是否在库信息
     void set_Stock(bool);// 设置图书是否在库信息
     bool  get_Existing();//获取存在标志

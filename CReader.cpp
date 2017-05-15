@@ -1,40 +1,54 @@
 #include "CReader.h"
+#include <iostream>
+#include <string>
 using namespace std;
 CReader::CReader()
 {
+	Is_Borrowing = false;
+	Is_Existing = false;
 }
 
 CReader::CReader(int id, string na)
 {
+	code = id;
+	name = na;
+	Is_Borrowing = false;
+	Is_Existing = false;
 }
 
 bool CReader::get_Existing()
 {
-	return false;
+	return Is_Existing;
 }
 
-void CReader::set_Existing(bool)
+void CReader::set_Existing(bool is)
 {
+	Is_Existing = is;
 }
 
 bool CReader::get_Borrowing()
 {
-	return false;
+	return Is_Borrowing;
 }
 
-void CReader::set_Borrowing(bool)
+void CReader::set_Borrowing(bool is)
 {
+	Is_Borrowing = is;
 }
 
 void CReader::setbrbook(CBook bt)
 {
+	brbook = bt;
 }
 
 CBook CReader::getbrbook()
 {
-	return CBook();
+	return brbook;
 }
 
 void CReader::show()
 {
+	CUser::show();
+	cout << "借的图书名称是" << brbook.getname() <<"图书编号是"<<brbook.getcode()<< endl;
+//	cout << Is_Existing << endl;
 }

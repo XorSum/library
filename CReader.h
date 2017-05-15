@@ -3,7 +3,7 @@
 #include "CBook.h"
 #include "CUser.h"
 using namespace std;
-class CReader: private CUser
+class CReader: public CUser
 {
 private:
 
@@ -29,9 +29,9 @@ public:
 
 	void setbrbook(CBook bt);  //用来记录读者结束信息
 
-	CBook getbrbook();     //用来获取读者结束信息
+	CBook getbrbook();		//用来获取读者结束信息
 
-	void show();                 //重写基类成员，显示读者的基本信息情况和借书情况
+	void show();			//重写基类成员，显示读者的基本信息情况和借书情况
 };
 
 #endif //CREADER_H 

@@ -1,13 +1,14 @@
 #ifndef CBOOK_H 
 #define CBOOK_H 
-
+#include <string>
+using namespace std;
 class CBook
 {
 private:
 
 	int code;              //图书编号
 
-	char name[20];      //图书名称
+	string name;     //图书名称
 
 	bool Is_Stock;          //true为在架，false为借出
 
@@ -17,15 +18,15 @@ public:
 
 	CBook(); //默认构造函数
 
-	CBook(int no, char na[]);    //构造函数，初始化图书信息
+	CBook(int no, string na);    //构造函数，初始化图书信息
 
 	void setcode(int n);   //设置图书编号
 
 	int getcode();    //获取图书编号
 
-	void setname(char na[]);    //设置图书名称
+	void setname(string na);    //设置图书名称
 
-	char* getname();  //获取图书名称
+	string getname();  //获取图书名称
 
 	bool  get_Stock();  //获取图书是否在库信息
 

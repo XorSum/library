@@ -1,8 +1,15 @@
 #include "CUser.h"
 #include <string>
+#include <iostream>
 using namespace std;
 CUser::CUser()
 {
+	//cout << "请输入用户编号" << endl;
+	//cin >> code;
+	//cout << "请输入用户姓名" << endl;
+	//cin >> name;
+	code = 0;
+	name = "";
 }
 
 CUser::CUser(int id, string na)
@@ -13,15 +20,17 @@ CUser::CUser(int id, string na)
 
 void CUser::setcode(int n)
 {
+	code = n;
 }
 
 int CUser::getcode()
 {
-	return 0;
+	return code;
 }
 
 void CUser::setname(string na)
 {
+	name = na;
 }
 
 string CUser::getname()
@@ -31,4 +40,6 @@ string CUser::getname()
 
 void CUser::show()
 {
+	cout << "用户编号是" << code << endl;
+	cout << "用户姓名是" << name << endl;
 }

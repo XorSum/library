@@ -4,7 +4,7 @@
 
 class CReaderManager
 {
-private:
+public:
 
 	CReader rdarray[50];// 存储读者信息的集合
 

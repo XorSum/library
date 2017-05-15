@@ -4,15 +4,15 @@
 CBook::CBook()
 {
 	code = 0;
-	strncpy(name, "unnamed",19);
+	name = "";
 	Is_Stock = false;
 	Is_Existing = false;
 }
 
-CBook::CBook(int no, char na[])
+CBook::CBook(int no, string na)
 {
 	code = no;
-	strncpy(name, na,19);
+	name = na;
 	Is_Stock = false;
 	Is_Existing = false;
 }
@@ -27,12 +27,12 @@ int CBook::getcode()
 	return code;
 }
 
-void CBook::setname(char na[])
+void CBook::setname(string na)
 {
-	strncpy(name, na, 19);
+	name = na;
 }
 
-char * CBook::getname()
+string CBook::getname()
 {
 	return name;
 }
