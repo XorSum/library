@@ -4,10 +4,7 @@
 using namespace std;
 CUser::CUser()
 {
-	//cout << "ÇëÊäÈëÓÃ»§±àºÅ" << endl;
-	//cin >> code;
-	//cout << "ÇëÊäÈëÓÃ»§ÐÕÃû" << endl;
-	//cin >> name;
+
 	code = 0;
 	name = "";
 }
@@ -40,6 +37,6 @@ string CUser::getname()
 
 void CUser::show()
 {
-	cout << "ÓÃ»§±àºÅÊÇ" << code << endl;
-	cout << "ÓÃ»§ÐÕÃûÊÇ" << name << endl;
+	cout << "ç”¨æˆ·ç¼–å·æ˜¯" << code << endl;
+	cout << "ç”¨æˆ·å§“åæ˜¯" << name << endl;
 }

@@ -49,6 +49,6 @@ CBook CReader::getbrbook()
 void CReader::show()
 {
 	CUser::show();
-	cout << "½èµÄÍ¼ÊéÃû³ÆÊÇ" << brbook.getname() <<"Í¼Êé±àºÅÊÇ"<<brbook.getcode()<< endl;
+	cout << "å›¾ä¹¦åç§°æ˜¯" << brbook.getname() <<"å›¾ä¹¦ç¼–å·æ˜¯"<<brbook.getcode()<< endl;
 //	cout << Is_Existing << endl;
 }
