@@ -8,6 +8,7 @@
 int main()
 {
 	CUser zxr;
+	cout << "ABC的" << endl;
 	zxr.show();
 	CReader hbk;
 	hbk.setname("hbk");
