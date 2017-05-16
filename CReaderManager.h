@@ -1,4 +1,4 @@
-#ifndef CREADERMANAGER_H 
+﻿#ifndef CREADERMANAGER_H 
 #define CREADERMANAGER_H 
 #include "CReader.h"
 

@@ -1,4 +1,4 @@
-#include "CUser.h"
+﻿#include "CUser.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -37,6 +37,6 @@ string CUser::getname()
 
 void CUser::show()
 {
-	cout << "用户编号是" << code << endl;
 	cout << "用户姓名是" << name << endl;
+	cout << "用户编号是" << code << endl;
 }

@@ -1,4 +1,4 @@
-#include "CBookManager.h"
+﻿#include "CBookManager.h"
 #include <iostream>
 
 CBookManager::CBookManager()

@@ -1,4 +1,4 @@
-#ifndef CBOOKMANAGER_H
+﻿#ifndef CBOOKMANAGER_H
 #define CBOOKMANAGER_H
 #include "CBook.h"
 class CBookManager

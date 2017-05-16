@@ -1,4 +1,4 @@
-#ifndef CUSER_H 
+﻿#ifndef CUSER_H 
 #define CUSER_H 
 
 #include <string>

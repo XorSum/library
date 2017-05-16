@@ -1,4 +1,4 @@
-#include "CBookManager.h"
+﻿#include "CBookManager.h"
 #include "CReaderManager.h"
 #include "CReader.h"
 #include "CBook.h"

@@ -1,4 +1,4 @@
-#include "CReader.h"
+﻿#include "CReader.h"
 #include "CBook.h"
 #include <string.h>
 CBook::CBook()

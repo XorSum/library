@@ -1,4 +1,4 @@
-#include "CReaderManager.h"
+﻿#include "CReaderManager.h"
 
 CReaderManager::CReaderManager()
 {
