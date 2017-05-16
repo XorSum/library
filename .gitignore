@@ -31,3 +31,5 @@
 library.vcxproj
 library.vcxproj.filters
 Debug/
+.idea/
+cmake-build-debug/
