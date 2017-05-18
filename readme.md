@@ -61,17 +61,13 @@
 
 ###  CUser类
 
-
 数据成员：
 
 ``` c++
+private:
     int code;           //表示用户编号；
     string name;        //表示用户姓名
-```
-
-成员函数:
-
-``` c++
+public:
     CUser();                    // 默认构造函数
     CUser(int id, string na);   //构造函数，初始化用户信息
     void setcode(int n);        //用来设置用户编号
@@ -86,14 +82,11 @@
 数据成员：
 
 ``` c++
+private:
     bool Is_Existing;           //true存在，false删除
     bool Is_Borrowing;          //true借过书，false没有借书
     CBook brbook;               //表示读者所借的图书
-```
-
-成员函数：
-
-``` c++
+public:
     CReader();                  //默认的构造函数
     CReader(int id, string na); //构造函数，初始化读者信息
     bool get_Existing();        //用来获取删除标志
@@ -107,18 +100,13 @@
 
 ### CBook类
 
-数据成员：
-
 ``` c++
+private:
     int code;               //图书编号
     string name;            //图书名称
     bool Is_Stock;          //true为在架，false为借出
     bool Is_Existing;       //true为存在, false为删除
-```
-
-成员函数：
-
-``` c++
+public:
     CBook();                //默认构造函数
     CBook(int no,string na);//构造函数，初始化图书信息
     void setcode(int n);    //设置图书编号
@@ -131,47 +119,67 @@
     void set_Existing(bool);//设置存在标志
 ```
 
-### CReaderManager类
-
-数据成员
+# DateBase类
 
 ``` c++
-    CReader rdarray[50];    // 存储读者信息的集合
-    int top;                //当前数组中存储的读者数量
-```
-
-成员函数
-
-``` c++
-    CReaderManager();           // 构造函数
-    ~CReaderManager();          //析构函数
-    void addreaders();          //添加读者
-    int findreaders(int suffix);//查找读者，这个函数用于借书还书操作。          
-    int findreaders();          //查找读者，这个函数用于读者维护操作
-    void editreaders();         //编辑读者信息
+private:
+    vector <CBook> bookarry;     //图书集合
+    vector <CReader> rearderarray; // 存储读者信息的集合
+public:
+    void addreader();          //添加读者
+    int findreader(int suffix);//查找读者，这个函数用于借书还书操作。
+    int findreader();          //查找读者，这个函数用于读者维护操作
+    void editreader();         //编辑读者信息
     void delreaders();          //删除读者，读者如果借书要还书后才能删除
     void listreaders();         //显示所有读者
-```
-
-### CBookManager类
-
-数据成员：
-
-``` c++
-    CBook btarray[50];          //图书集合
-    int top;                    //当前数组中存储的图书数量
-```
-
-成员函数：
-
-``` c++
-    CBookManager();
-    ~CBookManager();                
-    void addbooks() ;           //添加图书
-    int findbooks(int suffix);  //查找图书，这个函数用于借书还书操作
-    int findbooks() ;           //查找图书，用于图书维护操作
-    void editbooks();           //编辑图书
-    void delbooks();            //删除图书
+    
+    void addbook() ;           //添加图书
+    int findbook(int suffix);  //查找图书，这个函数用于借书还书操作
+    int findbook() ;           //查找图书，用于图书维护操作
+    void editbook();           //编辑图书
+    void delbook();            //删除图书
     void listbooks() ;          //显示全部图书
 ```
 
+# UserInterface类
+``` c++
+private:
+    DataBase database;
+public:
+    void landbook();            //借书
+    void returnbook();          //还书
+    void managereaders();       //读者管理
+    void managebooks();         //图书管理
+    void save(string filename); //保存到文件
+    void load(string filename); //从文件加载
+```    
+
+## 功能结构
+
+图书管理系统
+
+1. 读者管理
+
+    1. 添加读者
+
+    2. 删除读者
+
+    3. 修改读者
+
+    4. 查找读者
+
+2. 借书管理
+
+3. 还书管理
+
+4. 图书管理
+
+    1. 添加图书
+
+    2. 删除图书
+
+    3. 修改图书
+
+    4. 查找图书
+
+4. 文件存储
