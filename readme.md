@@ -61,8 +61,6 @@
 
 ###  CUser类
 
-数据成员：
-
 ``` c++
 private:
     int code;           //表示用户编号；
@@ -78,8 +76,6 @@ public:
 ```
 
 ### CReader 类
-
-数据成员：
 
 ``` c++
 private:
@@ -119,7 +115,7 @@ public:
     void set_Existing(bool);//设置存在标志
 ```
 
-# DateBase类
+### DateBase类
 
 ``` c++
 private:
@@ -143,7 +139,7 @@ public:
 	void listreaders();           //显示所有读者
 ```
 
-# UserInterface类
+### UserInterface类
 ``` c++
 private:
     DataBase database;
