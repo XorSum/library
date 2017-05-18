@@ -123,22 +123,24 @@ public:
 
 ``` c++
 private:
-    vector <CBook> bookarry;     //图书集合
-    vector <CReader> rearderarray; // 存储读者信息的集合
+	vector <CBook> btarray;  //存储图书信息
+	vector <CReader> rdarray;// 存储读者信息
 public:
-    void addreader();          //添加读者
-    int findreader(int suffix);//查找读者，这个函数用于借书还书操作。
-    int findreader();          //查找读者，这个函数用于读者维护操作
-    void editreader();         //编辑读者信息
-    void delreaders();          //删除读者，读者如果借书要还书后才能删除
-    void listreaders();         //显示所有读者
-    
-    void addbook() ;           //添加图书
-    int findbook(int suffix);  //查找图书，这个函数用于借书还书操作
-    int findbook() ;           //查找图书，用于图书维护操作
-    void editbook();           //编辑图书
-    void delbook();            //删除图书
-    void listbooks() ;          //显示全部图书
+	DataBase();
+	~DataBase();
+	void addbook(CBook book);    //添加图书
+	int findbook(string name);  //查找图书
+	int findbook(int code);  //查找图书
+	void editbook(int subscript,CBook book);//编辑图书
+	void delbook(int subscript);   //  删除图书
+	void listbooks();  //显示全部图书
+	void addreader(CReader reader);          //添加读者
+	int findreader(string name); //查找读者
+	int findreader(int code); //查找读者
+	int findreader(CBook book); //查找读者
+	void editreader(int subscript,CReader reader); //编辑读者信息
+	void delreader(int subscript);          //删除读者，读者如果借书要还书后才能删除
+	void listreaders();           //显示所有读者
 ```
 
 # UserInterface类
