@@ -70,3 +70,4 @@ void CBook::show()
 	else cout << "已删除";
 	cout << endl;
 }
+

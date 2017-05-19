@@ -20,7 +20,7 @@ public:
 	void set_Stock(bool is);// 设置图书是否在库信息
 	bool  get_Existing();//获取存在标志
 	void set_Existing(bool is);//设置存在标志
-	void show();				
+	void show();	
 };
 
 #endif //CBOOK_H 

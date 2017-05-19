@@ -32,6 +32,7 @@ int main()
 	db.addreader(hbk);
 	db.listreaders();
 	db.editreader(0, hbk);
+	db.save();
 	db.delreader(1);
 	db.listreaders();
 }

@@ -1,5 +1,7 @@
 #include "DataBase.h"
 #include<string>
+#include <fstream>  
+using namespace std;
 DataBase::DataBase()
 {
 }
@@ -11,7 +13,6 @@ DataBase::~DataBase()
 void DataBase::addbook(CBook book)
 {
 	bkarray.push_back(book);
-
 }
 
 int DataBase::findbook(string name)
@@ -100,4 +101,20 @@ void DataBase::listreaders()
 		if (rdarray[i].get_Existing()) rdarray[i].show();
 	}
 }
+
+void DataBase::save(string filename)
+{
+	ofstream out(filename.c_str(),ios::binary);
+	int bksize = bkarray.size();
+	out.write((char*)(&bksize), sizeof(bksize));
+	for (int i = 0; i < bkarray.size(); i++)
+		out.write((char*)(&bkarray[i]), sizeof(CBook));
+	int rdsize = rdarray.size();
+	out.write((char*)(&rdsize), sizeof(rdsize));
+	for (int i = 0; i < rdarray.size(); i++)
+		out.write((char*)(&rdarray[i]), sizeof(CReader));
+	out.close();
+}
+
+
 

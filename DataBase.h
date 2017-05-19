@@ -26,6 +26,8 @@ public:
 	void editreader(int subscript,CReader reader); //编辑读者信息
 	void delreader(int subscript);          //删除读者，读者如果借书要还书后才能删除
 	void listreaders();           //显示所有读者
+	void save(string filename="data.db");
+	void load(string filename = "data.db");
 };
 
 #endif // DATABASE_H
