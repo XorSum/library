@@ -6,7 +6,7 @@ CUser::CUser()
 {
 
 	code = 0;
-	name = "";
+	name = "unnamed";
 }
 
 CUser::CUser(int id, string na)
@@ -37,6 +37,5 @@ string CUser::getname()
 
 void CUser::show()
 {
-	cout << "用户姓名是" << name << endl;
-	cout << "用户编号是" << code << endl;
+	cout << "姓名：" << name << "编号：" << code << endl;
 }

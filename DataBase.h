@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef  DATABASE_H
+#define  DATABASE_H
 #include <vector>
 #include <string>
 #include "CBook.h"
@@ -8,7 +8,7 @@ using namespace std;
 class DataBase
 {
 private:
-	vector <CBook> btarray;  //存储图书信息
+	vector <CBook> bkarray;  //存储图书信息
 	vector <CReader> rdarray;// 存储读者信息
 public:
 	DataBase();
@@ -28,3 +28,4 @@ public:
 	void listreaders();           //显示所有读者
 };
 
+#endif // DATABASE_H

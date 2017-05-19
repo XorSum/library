@@ -1,20 +1,22 @@
 ﻿#include "CReader.h"
 #include "CBook.h"
-#include <string.h>
+#include <string>
+#include <iostream>
+using namespace std;
 CBook::CBook()
 {
 	code = 0;
-	name = "";
-	Is_Stock = false;
-	Is_Existing = false;
+	name = "unnamed";
+	Is_Stock = true;
+	Is_Existing = true;
 }
 
-CBook::CBook(int no, string na)
+CBook::CBook(int co, string na)
 {
-	code = no;
+	code = co;
 	name = na;
-	Is_Stock = false;
-	Is_Existing = false;
+	Is_Stock = true;
+	Is_Existing = true;
 }
 
 void CBook::setcode(int n)
@@ -55,4 +57,16 @@ bool CBook::get_Existing()
 void CBook::set_Existing(bool is)
 {
 	Is_Existing = is;
+}
+
+void CBook::show()
+{
+	cout << "名称：" << name << "code：" << code;
+	if (Is_Existing)
+	{
+		if (Is_Stock) cout << "在架";
+		else cout << "借出";
+	}
+	else cout << "已删除";
+	cout << endl;
 }

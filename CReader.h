@@ -17,7 +17,7 @@ public:
 	bool get_Borrowing();      //用来获取读者借阅情况
 	void set_Borrowing(bool);   //用来设置读者借阅情况
 	void setbrbook(CBook bt);  //用来记录读者借书信息
-	CBook getbrbook();		//用来获取读者结信息
+	CBook getbrbook();		//用来获取读者借书信息
 	void show();			//重写基类成员，显示读者的基本信息情况和借书情况
 };
 

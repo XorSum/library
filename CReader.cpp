@@ -4,16 +4,14 @@
 using namespace std;
 CReader::CReader()
 {
-	Is_Borrowing = false;
-	Is_Existing = false;
+	Is_Borrowing = true;
+	Is_Existing = true;
 }
 
-CReader::CReader(int id, string na)
+CReader::CReader(int id, string na) :CUser(id, na)
 {
-	code = id;
-	name = na;
-	Is_Borrowing = false;
-	Is_Existing = false;
+	Is_Borrowing = true;
+	Is_Existing = true;
 }
 
 bool CReader::get_Existing()
