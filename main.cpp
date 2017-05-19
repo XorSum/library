@@ -19,6 +19,8 @@ int main()
 	hbk.show();
 	cout << endl;
 	DataBase db;
+	db.load();
+	cout << "iojsdf" << endl;
 	db.addbook(book);
 	db.addbook(book2);
 	db.listbooks();
@@ -33,6 +35,5 @@ int main()
 	db.listreaders();
 	db.editreader(0, hbk);
 	db.save();
-	db.delreader(1);
-	db.listreaders();
+	db.load();
 }

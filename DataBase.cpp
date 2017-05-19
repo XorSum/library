@@ -1,6 +1,12 @@
+#include "CBook.h"
+#include "CUser.h"
+#include "CReader.h"
 #include "DataBase.h"
 #include<string>
 #include <fstream>  
+#include <iostream>
+#include <vector>
+
 using namespace std;
 DataBase::DataBase()
 {
@@ -104,17 +110,50 @@ void DataBase::listreaders()
 
 void DataBase::save(string filename)
 {
-	ofstream out(filename.c_str(),ios::binary);
+	ofstream outfile(filename.c_str(),ios::binary);
 	int bksize = bkarray.size();
-	out.write((char*)(&bksize), sizeof(bksize));
-	for (int i = 0; i < bkarray.size(); i++)
-		out.write((char*)(&bkarray[i]), sizeof(CBook));
+	outfile.write((char*)(&bksize), sizeof(bksize));
+	for (int i = 0; i <bksize; i++)
+		outfile.write((char*)(&bkarray[i]), sizeof(CBook));
 	int rdsize = rdarray.size();
-	out.write((char*)(&rdsize), sizeof(rdsize));
-	for (int i = 0; i < rdarray.size(); i++)
-		out.write((char*)(&rdarray[i]), sizeof(CReader));
-	out.close();
+	outfile.write((char*)(&rdsize), sizeof(rdsize));
+	for (int i = 0; i < rdsize; i++)
+		outfile.write((char*)(&rdarray[i]), sizeof(CReader));
+	outfile.close();
 }
-
+void DataBase::load(string filename)
+{
+	ifstream infile(filename.c_str(), ios::binary);
+	bkarray.clear();
+	int bksize;
+	CBook book;
+	infile.read((char*)(&bksize), sizeof(bksize));
+	bkarray.reserve(bksize * 2);
+	for (int i = 0; i < bksize; i++)
+	{
+		infile.read((char*)(&book), sizeof(CBook));;
+		bkarray.push_back(book);
+	}
+	rdarray.clear();
+	int rdsize;
+	CReader reader;
+	infile.read((char*)(&rdsize), sizeof(rdsize));
+	rdarray.reserve(rdsize * 2);
+	for (int i = 0; i < rdsize; i++)
+	{
+		infile.read((char*)(&reader), sizeof(CReader));
+		rdarray.push_back(reader);
+	}
+	infile.close();
+	listbooks();
+	listreaders();
+	/*
+	cout << "qqqwwweee" << endl;
+	bkarray.clear();
+	rdarray.clear();
+	CReader reader;
+	rdarray.push_back(reader);
+*/
+}
 
 
