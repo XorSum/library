@@ -10,10 +10,14 @@
 using namespace std;
 DataBase::DataBase()
 {
+	bkarray.clear();
+	rdarray.clear();
 }
 
 DataBase::~DataBase()
 {
+	bkarray.clear();
+	rdarray.clear();
 }
 
 void DataBase::addbook(CBook book)
@@ -147,7 +151,7 @@ void DataBase::load(string filename)
 	infile.close();
 	listbooks();
 	listreaders();
-	/*
+/*
 	cout << "qqqwwweee" << endl;
 	bkarray.clear();
 	rdarray.clear();

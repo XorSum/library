@@ -19,7 +19,7 @@ int main()
 	hbk.show();
 	cout << endl;
 	DataBase db;
-	db.load();
+	//db.load();
 	cout << "iojsdf" << endl;
 	db.addbook(book);
 	db.addbook(book2);
@@ -36,4 +36,6 @@ int main()
 	db.editreader(0, hbk);
 	db.save();
 	db.load();
+	cout << "main函数" << endl;
+	return 0;
 }
