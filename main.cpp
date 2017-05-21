@@ -36,6 +36,7 @@ int main()
 	db.editreader(0, hbk);
 	db.save();
 	db.load();
-	cout << "main函数" << endl;
+	db.listbooks();
+	db.listreaders();
 	return 0;
 }

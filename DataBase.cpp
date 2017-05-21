@@ -130,34 +130,25 @@ void DataBase::load(string filename)
 	ifstream infile(filename.c_str(), ios::binary);
 	bkarray.clear();
 	int bksize;
-	CBook book;
 	infile.read((char*)(&bksize), sizeof(bksize));
 	bkarray.reserve(bksize * 2);
 	for (int i = 0; i < bksize; i++)
 	{
-		infile.read((char*)(&book), sizeof(CBook));;
-		bkarray.push_back(book);
+		CBook *book= new CBook;
+		infile.read((char*)(book), sizeof(CBook));;
+		bkarray.push_back(*book);
 	}
 	rdarray.clear();
 	int rdsize;
-	CReader reader;
 	infile.read((char*)(&rdsize), sizeof(rdsize));
 	rdarray.reserve(rdsize * 2);
 	for (int i = 0; i < rdsize; i++)
 	{
-		infile.read((char*)(&reader), sizeof(CReader));
-		rdarray.push_back(reader);
+		CReader *reader =new CReader;
+		infile.read((char*)(reader), sizeof(CReader));
+		rdarray.push_back(*reader);
 	}
 	infile.close();
-	listbooks();
-	listreaders();
-/*
-	cout << "qqqwwweee" << endl;
-	bkarray.clear();
-	rdarray.clear();
-	CReader reader;
-	rdarray.push_back(reader);
-*/
 }
 
 
