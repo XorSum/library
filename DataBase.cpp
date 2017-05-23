@@ -38,14 +38,45 @@ int DataBase::findbook(int code)
 {
 	for (int i = 0; i < bkarray.size(); i++)
 	{
-		if (bkarray[i].getcode() == code) return i;
+		if (bkarray[i].getcode() == code && bkarray[i].get_Existing() == true)
+		{
+			if (bkarray[i].get_Stock()==true)
+				return i;
+			else return -2;
+		}
 	}
 	return -1;
+}
+
+CBook DataBase::getbook(int subscript)
+{
+	return bkarray[subscript];
+
+}
+
+CReader DataBase::getreader(int subscript)
+{
+	return rdarray[subscript];
 }
 
 void DataBase::editbook(int subscript, CBook book)
 {
 	bkarray[subscript] = book;
+}
+
+void DataBase::editbook(int subscript, int code)
+{
+	bkarray[subscript].setcode(code);
+}
+
+void DataBase::editbook(int subscript, string name)
+{
+	bkarray[subscript].setname(name);
+}
+
+void DataBase::editbook(int subscript, bool Is_Stock)
+{
+	bkarray[subscript].set_Stock(Is_Stock);
 }
 
 void DataBase::delbook(int subscript)
@@ -99,6 +130,26 @@ void DataBase::editreader(int subscript, CReader reader)
 	rdarray[subscript] = reader;
 }
 
+void DataBase::editreader(int subscript, string name)
+{
+	rdarray[subscript].setname(name);
+}
+
+void DataBase::editreader(int subscript, int code)
+{
+	rdarray[subscript].setcode(code);
+}
+
+void DataBase::editreader(int subscript, CBook book)
+{
+	bkarray[subscript] = book;
+}
+
+void DataBase::editreader(int subscript, bool Is_Borrowing)
+{
+	rdarray[subscript].set_Borrowing(Is_Borrowing);
+}
+
 void DataBase::delreader(int subscript)
 {
 	rdarray[subscript].set_Existing(false);
@@ -115,6 +166,11 @@ void DataBase::listreaders()
 void DataBase::save(string filename)
 {
 	ofstream outfile(filename.c_str(),ios::binary);
+	if (!outfile.is_open())
+	{
+		cout << "Error opening file";
+		return;
+	}
 	int bksize = bkarray.size();
 	outfile.write((char*)(&bksize), sizeof(bksize));
 	for (int i = 0; i <bksize; i++)
@@ -128,6 +184,11 @@ void DataBase::save(string filename)
 void DataBase::load(string filename)
 {
 	ifstream infile(filename.c_str(), ios::binary);
+	if (!infile.is_open())
+	{
+		cout << "Error opening file"; 
+		return;
+	}
 	bkarray.clear();
 	int bksize;
 	infile.read((char*)(&bksize), sizeof(bksize));

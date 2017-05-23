@@ -23,41 +23,14 @@
 # 2.总体设计
 
 
-## 1.功能结构
+## 1.功能结构图
 
-图书管理系统
 
-1. 读者管理
-
-    1. 添加读者
-
-    2. 删除读者
-
-    3. 修改读者
-
-    4. 查找读者
-
-2. 借书管理
-
-3. 还书管理
-
-4. 图书管理
-
-    1. 添加图书
-
-    2. 删除图书
-
-    3. 修改图书
-
-    4. 查找图书
-
-4. 文件存储
-
-![功能结构图](./111111.png)
+![](./jiegoutu.png)
 
 ##  2.类的设计
 
-包含5个类，具体如下：
+包含4个类，具体如下：
 
 ###  1.CUser类
 
@@ -119,36 +92,24 @@ public:
 
 ``` c++
 private:
-	vector <CBook> btarray;  //存储图书信息
-	vector <CReader> rdarray;// 存储读者信息
+    vector <CBook> btarray;  //存储图书信息
+    vector <CReader> rdarray;// 存储读者信息
 public:
-	DataBase();
-	~DataBase();
-	void addbook(CBook book);    //添加图书
-	int findbook(string name);  //查找图书
-	int findbook(int code);  //查找图书
-	void editbook(int subscript,CBook book);//编辑图书
-	void delbook(int subscript);   //  删除图书
-	void listbooks();  //显示全部图书
-	void addreader(CReader reader);          //添加读者
-	int findreader(string name); //查找读者
-	int findreader(int code); //查找读者
-	int findreader(CBook book); //查找读者
-	void editreader(int subscript,CReader reader); //编辑读者信息
-	void delreader(int subscript);          //删除读者，读者如果借书要还书后才能删除
-	void listreaders();           //显示所有读者
-```
-
-### 5.UserInterface类
-``` c++
-private:
-    DataBase database;
-public:
-    void landbook();            //借书
-    void returnbook();          //还书
-    void managereaders();       //读者管理
-    void managebooks();         //图书管理
+    DataBase();
+    ~DataBase();
+    void addbook(CBook book);    //添加图书
+    int findbook(string name);  //查找图书
+    int findbook(int code);  //查找图书
+    void editbook(int subscript,CBook book);//编辑图书
+    void delbook(int subscript);   //  删除图书
+    void listbooks();  //显示全部图书
+    void addreader(CReader reader);          //添加读者
+    int findreader(string name); //查找读者
+    int findreader(int code); //查找读者
+    int findreader(CBook book); //查找读者
+    void editreader(int subscript,CReader reader); //编辑读者信息
+    void delreader(int subscript);          //删除读者，读者如果借书要还书后才能删除
+    void listreaders();           //显示所有读者
     void save(string filename); //保存到文件
     void load(string filename); //从文件加载
-```    
-
+```
