@@ -83,12 +83,94 @@ int filemanage()
 	}
 	return 0;
 }
+int bookcreate() 
+{ 
+	CBook book;
+	int code;
+	string name;
+	cout << "请输入书号" << endl;
+	cin >> code;
+	cout << "请输入书名" << endl;
+	cin >> name;
+	book.setcode(code);
+	book.setname(name);
+	bookManager.addbook(book);
+	return 0; 
+}
+int bookdelete() { return 0; }
+int bookedit() { return 0; }
+int bookfind() { return 0; }
 int bookmanage()
 {
+	cout << "1.增加图书" << endl;
+	cout << "2.删除图书" << endl;
+	cout << "3.更改图书" << endl;
+	cout << "4.查找图书" << endl;
+	int command;
+	cout << "请输入指令" << endl;
+	cin >> command;
+	switch (command)
+	{
+	case 1:
+		bookcreate();
+		break;
+	case 2:
+		bookdelete();
+		break;
+	case 3:
+		bookedit();
+		break;
+	case 4:
+		bookfind();
+		break;
+	default:
+		break;
+	}
 	return 0;
 }
+int readercreate() 
+{
+	int code;
+	string name;
+	CReader reader;
+	cout << "请输入编号" << endl;
+	cin >> code;
+	cout << "请输入姓名" << endl;
+	cin >> name;
+	reader.setcode(code);
+	reader.setname(name);
+	readerManager.addreader(reader);
+	return 0;
+}
+int readerdelete() { return 0; }
+int readeredit() { return 0; }
+int readerfind() { return 0; }
 int readermanage()
 {
+	cout << "1.增加读者" << endl;
+	cout << "2.删除读者" << endl;
+	cout << "3.更改读者" << endl;
+	cout << "4.查找读者" << endl;
+	int command;
+	cout << "请输入指令" << endl;
+	cin >> command;
+	switch (command)
+	{
+	case 1:
+		readercreate();
+		break;
+	case 2:
+		readerdelete();
+		break;
+	case 3:
+		readeredit();
+		break;
+	case 4:
+		readerfind();
+		break;
+	default:
+		break;
+	}
 	return 0;
 }
 int main()
