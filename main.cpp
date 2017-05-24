@@ -1,16 +1,18 @@
 ﻿#include "CReader.h"
 #include "CBook.h"
 #include "CUser.h"
-#include "DataBase.h"
+#include "CBookManager.h"
+#include "CReaderManager.h"
 #include <iostream>
-DataBase db;
+CBookManager bookManager;
+CReaderManager readerManager;
 int landbook()
 {
 	string readerName, bookName;
 	int readerSubscript, bookSubscript;
 	cout << "请输入读者名称" << endl;
 	cin >> readerName;
-	readerSubscript = db.findreader(readerName);
+	readerSubscript = readerManager.findreader(readerName);
 	if (readerSubscript == -1)
 	{
 		cout << "读者不存在" << endl;
@@ -18,7 +20,7 @@ int landbook()
 	}
 	cout << "请输入书籍名称" << endl;
 	cin >> bookName;
-	bookSubscript = db.findbook(bookName);
+	bookSubscript = bookManager.findbook(bookName);
 	if (bookSubscript == -1)
 	{
 		cout << "书籍不存在" << endl;
@@ -29,9 +31,9 @@ int landbook()
 		cout << "书籍已借出" << endl;
 		return 0;
 	}
-	db.editbook(bookSubscript, false);
-	db.editreader(readerSubscript, db.getbook(bookSubscript));
-	db.editreader(readerSubscript, true);
+	bookManager.editbook(bookSubscript, false);
+	readerManager.editreader(readerSubscript, bookManager.getbook(bookSubscript));
+	readerManager.editreader(readerSubscript, true);
 	cout << "借书成功" << endl;
 	return 0;
 }
@@ -40,16 +42,45 @@ int returnbook()
 	cout << "请输入读者名称" << endl;
 	string readername;
 	cin >> readername;
-	int readersubscript = db.findreader(readername);
+	int readersubscript = readerManager.findreader(readername);
 	if (readersubscript == -1)
 	{
 		cout << "读者不存在" << endl;
 		return 0;
 	}
-	string bookname = db.findbook(((db.getreader(readersubscript)).getbrbook()).getname());
-	int booksubscript = db.findbook(bookname);
-	db.editbook(booksubscript, true);
-	db.editreader(readersubscript, false);
+	CReader reader = readerManager.getreader(readersubscript);
+	CBook book = reader.getbrbook();
+	int booksubscript = bookManager.findbook(book.getname());
+	bookManager.editbook(booksubscript, true);
+	readerManager.editreader(readersubscript, false);
+	return 0;
+}
+int filemanage()
+{
+	cout << "1.文件存储" << endl << "2.文件读取" << endl;
+	int command;
+	cin >> command;
+	if (command == 1)
+	{
+		readerManager.save();
+		bookManager.save();
+		cout << "已存储在books.db和readers.db中" << endl;
+		return 0;
+	}
+	else if (command == 2)
+	{
+		readerManager.load();
+		bookManager.load();
+		cout << "文件已读取" << endl;
+		bookManager.listbooks();
+		readerManager.listreaders();
+		return 0;
+	}
+	else
+	{
+		cout << "文件未操作" << endl;
+		return 1;
+	}
 	return 0;
 }
 int bookmanage()
@@ -60,37 +91,6 @@ int readermanage()
 {
 	return 0;
 }
-int filemanage()
-{
-	cout << "1.文件存储" << endl << "2.文件读取" << endl;
-	int command;
-	cin >> command;
-	if (command == 1)
-	{
-		cout << "请输入文件名，默认为data.db" << endl;
-		string filename;
-		cin >> filename;
-		db.save(filename);
-		cout << "文件已存储" << endl;
-		return 0;
-	}
-	else if (command == 2)
-	{
-		cout << "请输入文件名，默认为data.db" << endl;
-		string filename;
-		cin >> filename;
-		db.load(filename);
-		cout << "文件已读取" << endl;
-		db.listbooks();
-		db.listreaders();
-		return 0;
-	}
-	else
-	{
-		cout << "文件未操作" << endl;
-		return 1;
-	}
-}
 int main()
 {
 	cout << "欢迎使用图书馆管理系统" << endl;
@@ -100,10 +100,11 @@ int main()
 	cout << "4.读者管理" << endl;
 	cout << "5.文件存储" << endl;
 	cout << "其他退出" << endl;
-	int flag = 1;
+	bool flag = true;
 	while (flag)
 	{
-		int command=0;
+		int command;
+		cout << "请输入指令" << endl;
 		cin >> command;
 		switch (command)
 		{
@@ -123,15 +124,10 @@ int main()
 			filemanage();
 			break;
 		default:
-			cout << "1.存储并退出" << endl << "其他不退出" << endl;
-			int decmd;
-			cin >> decmd;
-			if (decmd == 1)
-			{
-				db.save();
-				flag = 0;
-			}
+			flag = false;
 		}
 	}
+	bookManager.save();
+	readerManager.save();
 	return 0;
 }
