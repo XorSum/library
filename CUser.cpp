@@ -37,5 +37,5 @@ string CUser::getname()
 
 void CUser::show()
 {
-	cout << "姓名：" << name << "编号：" << code << endl;
+	cout << "姓名：" << name << " 编号：" << code << endl;
 }

@@ -73,6 +73,7 @@ void CBookManager::delbook(int subscript)
 
 void CBookManager::listbooks()
 {
+	cout << "所有的图书：" << endl;
 	for (int i = 0; i < bkarray.size(); i++)
 	{
 		if (bkarray[i].get_Existing())

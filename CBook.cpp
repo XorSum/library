@@ -61,13 +61,13 @@ void CBook::set_Existing(bool is)
 
 void CBook::show()
 {
-	cout << "名称：" << name << "code：" << code;
+	
 	if (Is_Existing)
 	{
-		if (Is_Stock) cout << "在架";
-		else cout << "借出";
+		cout << "名称：" << name << " code：" << code;
+		if (Is_Stock) cout << " 在架";
+		else cout << " 借出";
+		cout << endl;
 	}
-	else cout << "已删除";
-	cout << endl;
 }
 
