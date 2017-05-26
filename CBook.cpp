@@ -64,7 +64,7 @@ void CBook::show()
 	
 	if (Is_Existing)
 	{
-		cout << "名称：" << name << " code：" << code;
+		cout << "名称：" << name << " 书号：" << code;
 		if (Is_Stock) cout << " 在架";
 		else cout << " 借出";
 		cout << endl;

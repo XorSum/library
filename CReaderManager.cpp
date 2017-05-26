@@ -82,7 +82,7 @@ void CReaderManager::delreader(int subscript)
 
 void CReaderManager::listreaders()
 {
-	cout << "所以的读者：" << endl;
+	cout << "所有的读者：" << endl;
 	for (int i = 0; i < rdarray.size(); i++)
 	{
 		if (rdarray[i].get_Existing()) rdarray[i].show();
@@ -115,11 +115,11 @@ void CReaderManager::load(string filename)
 	int rdsize;
 	infile.read((char*)(&rdsize), sizeof(rdsize));
 	rdarray.reserve(rdsize * 2);
+	CReader * readerarray = new CReader[rdsize];
 	for (int i = 0; i < rdsize; i++)
 	{
-		CReader *reader = new CReader;
-		infile.read((char*)(reader), sizeof(CReader));
-		rdarray.push_back(*reader);
+		infile.read((char*)(&readerarray[i]), sizeof(CReader));
+		rdarray.push_back(readerarray[i]);
 	}
 	infile.close();
 }

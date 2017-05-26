@@ -145,12 +145,18 @@ int bookfind()
 	book.show();
 	return 0; 
 }
+int booklist()
+{
+	bookManager.listbooks();
+	return 0;
+}
 int bookmanage()
 {
 	cout << "1.增加图书" << endl;
 	cout << "2.删除图书" << endl;
 	cout << "3.更改图书" << endl;
 	cout << "4.查找图书" << endl;
+	cout << "5.显示图书" << endl;
 	int command;
 	cout << "请输入指令" << endl;
 	cin >> command;
@@ -168,8 +174,10 @@ int bookmanage()
 	case 4:
 		bookfind();
 		break;
+	case 5:
+		booklist();
 	default:
-		break;
+		return 0;
 	}
 	return 0;
 }
@@ -257,12 +265,18 @@ int readerfind()
 	reader.show();
 	return 0;
 }
+int readerlist()
+{
+	readerManager.listreaders();
+	return 0;
+}
 int readermanage()
 {
 	cout << "1.增加读者" << endl;
 	cout << "2.删除读者" << endl;
 	cout << "3.更改读者" << endl;
 	cout << "4.查找读者" << endl;
+	cout << "5.显示读者" << endl;
 	int command;
 	cout << "请输入指令" << endl;
 	cin >> command;
@@ -279,9 +293,11 @@ int readermanage()
 		break;
 	case 4:
 		readerfind();
+	case 5:
+		readerlist();
 		break;
 	default:
-		break;
+		return 0;
 	}
 	return 0;
 }

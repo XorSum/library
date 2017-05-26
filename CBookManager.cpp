@@ -107,11 +107,11 @@ void CBookManager::load(string filename)
 	int bksize;
 	infile.read((char*)(&bksize), sizeof(bksize));
 	bkarray.reserve(bksize * 2);
+	CBook *bookarray = new CBook[bksize];
 	for (int i = 0; i < bksize; i++)
 	{
-		CBook *book = new CBook;
-		infile.read((char*)(book), sizeof(CBook));;
-		bkarray.push_back(*book);
+		infile.read((char*)(&bookarray[i]), sizeof(CBook));
+		bkarray.push_back(bookarray[i]);
 	}
 	infile.close();
 }

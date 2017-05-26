@@ -48,6 +48,6 @@ void CReader::show()
 {
 	CUser::show();
 	if (brbook.get_Stock()==false)
-		cout << " 图书名称是" << brbook.getname() <<" 图书编号是"<<brbook.getcode()<< endl;
+		cout << " 书名是" << brbook.getname() <<" 书号是"<<brbook.getcode()<< endl;
 //	cout << Is_Existing << endl;
 }

@@ -19,7 +19,7 @@ public:
 	void editbook(int subscript, int code);//编辑图书
 	void editbook(int subscript, string name);//编辑图书
 	void editbook(int subscript, bool Is_Stock);//编辑图书
-	void delbook(int subscript);   //  删除图书
+	void delbook(int subscript);   //删除图书
 	void listbooks();  //显示全部图书
 	void save(string filename = "books.db"); // 保存到文件
 	void load(string filename = "books.db"); // 从文件读取
