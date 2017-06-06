@@ -82,7 +82,7 @@ void CReaderManager::delreader(int subscript)
 
 void CReaderManager::listreaders()
 {
-	cout << "所有的读者：" << endl;
+	cout << "鎵�鏈夌殑璇昏�呬负" << endl;
 	for (int i = 0; i < rdarray.size(); i++)
 	{
 		if (rdarray[i].get_Existing()) rdarray[i].show();
