@@ -73,7 +73,7 @@ void CBookManager::delbook(int subscript)
 
 void CBookManager::listbooks()
 {
-	cout << "ËùÓÐµÄÍ¼Êé£º" << endl;
+	cout << "æ‰€æœ‰çš„å›¾ä¹¦ä¸º" << endl;
 	for (int i = 0; i < bkarray.size(); i++)
 	{
 		if (bkarray[i].get_Existing())
