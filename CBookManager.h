@@ -1,4 +1,4 @@
-#ifndef CBOOKMANAGER_H
+ï»¿#ifndef CBOOKMANAGER_H
 #define CBOOKMANAGER_H
 #include <vector>
 #include <string>
@@ -7,22 +7,22 @@ using namespace std;
 class CBookManager
 {
 private:
-	vector <CBook> bkarray;  //´æ´¢Í¼ÊéĞÅÏ¢
+	vector <CBook> bkarray;  //å­˜å‚¨å›¾ä¹¦ä¿¡æ¯
 public:
 	CBookManager();
 	~CBookManager();
-	void addbook(CBook book);    //Ìí¼ÓÍ¼Êé
-	int findbook(string name);  //²éÕÒÍ¼Êé
-	int findbook(int code);  //²éÕÒÍ¼Êé
+	void addbook(CBook book);    //æ·»åŠ å›¾ä¹¦
+	int findbook(string name);  //æŸ¥æ‰¾å›¾ä¹¦
+	int findbook(int code);  //æŸ¥æ‰¾å›¾ä¹¦
 	CBook getbook(int subscript);
-	void editbook(int subscript, CBook book);//±à¼­Í¼Êé
-	void editbook(int subscript, int code);//±à¼­Í¼Êé
-	void editbook(int subscript, string name);//±à¼­Í¼Êé
-	void editbook(int subscript, bool Is_Stock);//±à¼­Í¼Êé
-	void delbook(int subscript);   //É¾³ıÍ¼Êé
-	void listbooks();  //ÏÔÊ¾È«²¿Í¼Êé
-	void save(string filename = "books.db"); // ±£´æµ½ÎÄ¼ş
-	void load(string filename = "books.db"); // ´ÓÎÄ¼ş¶ÁÈ¡
+	void editbook(int subscript, CBook book);//ç¼–è¾‘å›¾ä¹¦
+	void editbook(int subscript, int code);//ç¼–è¾‘å›¾ä¹¦
+	void editbook(int subscript, string name);//ç¼–è¾‘å›¾ä¹¦
+	void editbook(int subscript, bool Is_Stock);//ç¼–è¾‘å›¾ä¹¦
+	void delbook(int subscript);   //åˆ é™¤å›¾ä¹¦
+	void listbooks();  //æ˜¾ç¤ºå…¨éƒ¨å›¾ä¹¦
+	void save(string filename = "books.db"); // ä¿å­˜åˆ°æ–‡ä»¶
+	void load(string filename = "books.db"); // ä»æ–‡ä»¶è¯»å–
 };
 
 #endif //CBOOKMANAGER_H
